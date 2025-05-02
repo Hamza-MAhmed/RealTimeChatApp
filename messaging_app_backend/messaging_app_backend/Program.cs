@@ -3,9 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Hosting;
+using messaging_app_backend.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
+//builder.WebHost.UseUrls("http://0.0.0.0:5095");
+
 
 // Add services to the container.
 builder.Services.AddDbContext<ChatAppDbContext>(options =>
@@ -52,14 +55,15 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = "yourapp.com",
         ValidAudience = "yourapp.com",
-        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("YourSuperSecretKeyHere123!"))
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("IAmTheSecretKeyWithExactly32CharsOK!"))
     };
 });
 
+builder.Services.AddScoped<IChatListService, ChatListService>();
 
 var app = builder.Build();
 // CORS middleware must be placed before routing and authorization
-app.UseCors();  // Use CORS middleware to apply the CORS policy
+app.UseCors("AllowAll");  // Use CORS middleware to apply the CORS policy
 app.UseAuthentication(); // 🔥 Add this before UseAuthorization()
 
 // Configure the HTTP request pipeline.

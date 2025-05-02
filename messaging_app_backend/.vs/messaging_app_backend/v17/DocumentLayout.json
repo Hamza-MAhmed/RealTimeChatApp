@@ -1,50 +1,94 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\Sem6\\Project\\messaging_app_backend\\",
+  "WorkspaceRootPath": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\project\\messaging_app_backend\\messaging_app_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\project\\messaging_app_backend\\messaging_app_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\project\\messaging_app_backend\\messaging_app_backend\\models\\signuprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\models\\signuprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\project\\messaging_app_backend\\messaging_app_backend\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Migrations\\20250427191229_UpdatedUserModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:messaging_app_backend\\Migrations\\20250427191229_UpdatedUserModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\project\\messaging_app_backend\\messaging_app_backend\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\project\\messaging_app_backend\\messaging_app_backend\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\project\\messaging_app_backend\\messaging_app_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\services\\chatlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\services\\chatlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\services\\ichatlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\services\\ichatlistservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\controllers\\chatscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\dto\\chatlistitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\dto\\chatlistitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\project\\messaging_app_backend\\messaging_app_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\project\\messaging_app_backend\\messaging_app_backend\\data\\chatappdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\data\\chatappdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\data\\chatappdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\project\\messaging_app_backend\\messaging_app_backend\\messaging_app_backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\models\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\models\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Migrations\\20250501193030_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:messaging_app_backend\\Migrations\\20250501193030_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Migrations\\20250501190724_UpdatedChat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:messaging_app_backend\\Migrations\\20250501190724_UpdatedChat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\models\\chatgroupmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\models\\chatgroupmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\messaging_app_backend.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\messaging_app_backend.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\messaging_app_backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\messaging_app_backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\models\\signuprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\models\\signuprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|f:\\sem6\\realtimechatapp\\messaging_app_backend\\messaging_app_backend\\migrations\\20250501194154_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD8550CF-85DD-4156-829F-3947994F705E}|messaging_app_backend\\messaging_app_backend.csproj|solutionrelative:messaging_app_backend\\migrations\\20250501194154_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,54 +98,68 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": ".gitignore",
-              "DocumentMoniker": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\.gitignore",
-              "RelativeDocumentMoniker": "messaging_app_backend\\.gitignore",
-              "ToolTip": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\.gitignore",
-              "RelativeToolTip": "messaging_app_backend\\.gitignore",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAA==",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF8SURBVDhPjVNLTgJBEG1lwpoFB3GNK9fieA48hD8iwT/ihwgSDAIHgAGXXsEV18CNzL/LquqZdsYM6kteXqcy3fWqpmpNRBgOhyABBEgpAFVKPIMUcYzUyOU\u002BXM/b2qtU3vkSfRjjZTCAMAw1A2LwzdFoBPP5HNqdzuL27n4juibWI\u002BUshBA1DIkhEx9iEorFotgslQqGYbxxAGFEqt1MxmPWJLbLZdZ\u002Bv89q5PMFPiTR6z2zdaxR0fXA0XTBcVywkb4fwHXjRteecIDNQ7UmExVYAdPcxYaqclN46na5WenMKjtlVnTYwcXlVYaDqImW9beD5N/TeGy32QHXm6hZ03ZgiSQHp2fnWQ4oBmJqWSqwAqZpZjt4aLXAD4J0VqyZsmoubfB8H2r1eoaD6NXZ9HcHO\u002BSA3f4AjifXl8rItOETM8ckB9WTWpYD9RdeZ1PWVWAHWXPQaDb59f/w8LiqHeh1pvGkCaP6qB8yXusoxmuNZ7XmII4O9vGuEF86osuDYRkpYQAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-04-27T23:41:59.889Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "messaging_app_backend\\Views\\Home\\Index.cshtml",
-              "ToolTip": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "messaging_app_backend\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-27T20:39:06.503Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "20250427191229_UpdatedUserModel.cs",
-              "DocumentMoniker": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Migrations\\20250427191229_UpdatedUserModel.cs",
-              "RelativeDocumentMoniker": "messaging_app_backend\\Migrations\\20250427191229_UpdatedUserModel.cs",
-              "ToolTip": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Migrations\\20250427191229_UpdatedUserModel.cs",
-              "RelativeToolTip": "messaging_app_backend\\Migrations\\20250427191229_UpdatedUserModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "User.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Models\\User.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Models\\User.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Models\\User.cs",
+              "RelativeToolTip": "messaging_app_backend\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T19:12:30.715Z",
+              "WhenOpened": "2025-04-27T04:22:01.538Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\.gitignore",
+              "RelativeDocumentMoniker": "messaging_app_backend\\.gitignore",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\.gitignore",
+              "RelativeToolTip": "messaging_app_backend\\.gitignore",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF8SURBVDhPjVNLTgJBEG1lwpoFB3GNK9fieA48hD8iwT/ihwgSDAIHgAGXXsEV18CNzL/LquqZdsYM6kteXqcy3fWqpmpNRBgOhyABBEgpAFVKPIMUcYzUyOU\u002BXM/b2qtU3vkSfRjjZTCAMAw1A2LwzdFoBPP5HNqdzuL27n4juibWI\u002BUshBA1DIkhEx9iEorFotgslQqGYbxxAGFEqt1MxmPWJLbLZdZ\u002Bv89q5PMFPiTR6z2zdaxR0fXA0XTBcVywkb4fwHXjRteecIDNQ7UmExVYAdPcxYaqclN46na5WenMKjtlVnTYwcXlVYaDqImW9beD5N/TeGy32QHXm6hZ03ZgiSQHp2fnWQ4oBmJqWSqwAqZpZjt4aLXAD4J0VqyZsmoubfB8H2r1eoaD6NXZ9HcHO\u002BSA3f4AjifXl8rItOETM8ckB9WTWpYD9RdeZ1PWVWAHWXPQaDb59f/w8LiqHeh1pvGkCaP6qB8yXusoxmuNZ7XmII4O9vGuEF86osuDYRkpYQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-05-02T07:32:18.206Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "ChatsController.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Controllers\\ChatsController.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Controllers\\ChatsController.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Controllers\\ChatsController.cs",
+              "RelativeToolTip": "messaging_app_backend\\Controllers\\ChatsController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAUwBgAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T19:50:00.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Controllers\\AuthController.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "messaging_app_backend\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAqwHIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T04:34:09.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "LoginRequest.cs",
-              "DocumentMoniker": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Models\\LoginRequest.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Models\\LoginRequest.cs",
               "RelativeDocumentMoniker": "messaging_app_backend\\Models\\LoginRequest.cs",
-              "ToolTip": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Models\\LoginRequest.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Models\\LoginRequest.cs",
               "RelativeToolTip": "messaging_app_backend\\Models\\LoginRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -110,39 +168,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SignupRequest.cs",
-              "DocumentMoniker": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Models\\SignupRequest.cs",
-              "RelativeDocumentMoniker": "messaging_app_backend\\Models\\SignupRequest.cs",
-              "ToolTip": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Models\\SignupRequest.cs",
-              "RelativeToolTip": "messaging_app_backend\\Models\\SignupRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ChatListItemDto.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\DTO\\ChatListItemDto.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\DTO\\ChatListItemDto.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\DTO\\ChatListItemDto.cs",
+              "RelativeToolTip": "messaging_app_backend\\DTO\\ChatListItemDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T19:03:27.97Z",
+              "WhenOpened": "2025-04-30T19:03:50.067Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "User.cs",
-              "DocumentMoniker": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Models\\User.cs",
-              "RelativeDocumentMoniker": "messaging_app_backend\\Models\\User.cs",
-              "ToolTip": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Models\\User.cs",
-              "RelativeToolTip": "messaging_app_backend\\Models\\User.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAowAwAAAASAAAAAAAAAA==",
+              "Title": "ChatListService.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Services\\ChatListService.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Services\\ChatListService.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Services\\ChatListService.cs",
+              "RelativeToolTip": "messaging_app_backend\\Services\\ChatListService.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAYwFEAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T04:22:01.538Z",
+              "WhenOpened": "2025-05-01T23:22:49.524Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "IChatListService.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Services\\IChatListService.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Services\\IChatListService.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Services\\IChatListService.cs",
+              "RelativeToolTip": "messaging_app_backend\\Services\\IChatListService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T19:52:11.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\appsettings.json",
+              "RelativeDocumentMoniker": "messaging_app_backend\\appsettings.json",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\appsettings.json",
+              "RelativeToolTip": "messaging_app_backend\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-27T04:30:20.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Program.cs",
-              "DocumentMoniker": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Program.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Program.cs",
               "RelativeDocumentMoniker": "messaging_app_backend\\Program.cs",
-              "ToolTip": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Program.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Program.cs",
               "RelativeToolTip": "messaging_app_backend\\Program.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAADYAAABaAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAADgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-27T04:31:12.139Z",
               "EditorCaption": ""
@@ -150,38 +234,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "messaging_app_backend\\Controllers\\AuthController.cs",
-              "ToolTip": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "messaging_app_backend\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAH0AAAAAAAAAAAAAAEsAAABkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T04:34:09.596Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\appsettings.json",
-              "RelativeDocumentMoniker": "messaging_app_backend\\appsettings.json",
-              "ToolTip": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\appsettings.json",
-              "RelativeToolTip": "messaging_app_backend\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-27T04:30:20.882Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "ChatAppDbContext.cs",
-              "DocumentMoniker": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Data\\ChatAppDbContext.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Data\\ChatAppDbContext.cs",
               "RelativeDocumentMoniker": "messaging_app_backend\\Data\\ChatAppDbContext.cs",
-              "ToolTip": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\Data\\ChatAppDbContext.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Data\\ChatAppDbContext.cs",
               "RelativeToolTip": "messaging_app_backend\\Data\\ChatAppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-27T04:29:10.22Z",
               "EditorCaption": ""
@@ -189,15 +247,134 @@
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "messaging_app_backend",
-              "DocumentMoniker": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\messaging_app_backend.csproj",
-              "RelativeDocumentMoniker": "messaging_app_backend\\messaging_app_backend.csproj",
-              "ToolTip": "F:\\Sem6\\Project\\messaging_app_backend\\messaging_app_backend\\messaging_app_backend.csproj",
-              "RelativeToolTip": "messaging_app_backend\\messaging_app_backend.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-27T04:28:24.915Z",
+              "Title": "ChatMessage.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Models\\ChatMessage.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Models\\ChatMessage.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Models\\ChatMessage.cs",
+              "RelativeToolTip": "messaging_app_backend\\Models\\ChatMessage.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAA4wB4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T23:32:03.046Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "20250501190724_UpdatedChat.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Migrations\\20250501190724_UpdatedChat.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Migrations\\20250501190724_UpdatedChat.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Migrations\\20250501190724_UpdatedChat.cs",
+              "RelativeToolTip": "messaging_app_backend\\Migrations\\20250501190724_UpdatedChat.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T19:07:24.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "20250501193030_InitialCreate.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Migrations\\20250501193030_InitialCreate.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Migrations\\20250501193030_InitialCreate.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Migrations\\20250501193030_InitialCreate.cs",
+              "RelativeToolTip": "messaging_app_backend\\Migrations\\20250501193030_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T19:30:30.361Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "20250501194154_InitialCreate.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Migrations\\20250501194154_InitialCreate.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Migrations\\20250501194154_InitialCreate.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Migrations\\20250501194154_InitialCreate.cs",
+              "RelativeToolTip": "messaging_app_backend\\Migrations\\20250501194154_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T19:41:55.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ChatGroupMember.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Models\\ChatGroupMember.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Models\\ChatGroupMember.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Models\\ChatGroupMember.cs",
+              "RelativeToolTip": "messaging_app_backend\\Models\\ChatGroupMember.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA3wBgAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T19:41:35.69Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "messaging_app_backend",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\messaging_app_backend.csproj",
+              "RelativeDocumentMoniker": "messaging_app_backend\\messaging_app_backend.csproj",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\messaging_app_backend.csproj",
+              "RelativeToolTip": "messaging_app_backend\\messaging_app_backend.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-28T23:23:54.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "messaging_app_backend.csproj",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\messaging_app_backend.csproj",
+              "RelativeDocumentMoniker": "messaging_app_backend\\messaging_app_backend.csproj",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\messaging_app_backend.csproj",
+              "RelativeToolTip": "messaging_app_backend\\messaging_app_backend.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-27T04:28:24.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Controllers\\HomeController.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "messaging_app_backend\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T12:46:56.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Properties\\launchSettings.json",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Properties\\launchSettings.json",
+              "RelativeToolTip": "messaging_app_backend\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-28T12:39:58.177Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SignupRequest.cs",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Models\\SignupRequest.cs",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Models\\SignupRequest.cs",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Models\\SignupRequest.cs",
+              "RelativeToolTip": "messaging_app_backend\\Models\\SignupRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T19:03:27.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "messaging_app_backend\\Views\\Home\\Index.cshtml",
+              "ToolTip": "F:\\Sem6\\RealTimeChatApp\\messaging_app_backend\\messaging_app_backend\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "messaging_app_backend\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-27T20:39:06.503Z"
             }
           ]
         }
