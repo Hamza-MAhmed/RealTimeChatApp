@@ -14,77 +14,31 @@ namespace messaging_app_backend.Services
         {
             _context = context;
         }
-
-        public async Task<List<ChatListItemDto>> GetUserChatsAsync(int userId)
+            public async Task<List<ChatListItemDto>> GetUserChatsAsync(int userId)
         {
-            // --- 1-on-1 Chats ---
-            //var directChats = await _context.ChatMessages
-            //    .Where(m => m.SenderId == userId || m.ReceiverId == userId)
-            //    .GroupBy(m => m.SenderId == userId ? m.ReceiverId : m.SenderId)
-            //    .Select(g => g.OrderByDescending(m => m.CreatedAt).FirstOrDefault())
-            //    .Join(_context.Users,
-            //          msg => msg.SenderId == userId ? msg.ReceiverId : msg.SenderId,
-            //          user => user.UserId,
-            //          (msg, user) => new ChatListItemDto
-            //          {
-            //              ChatId = user.UserId,
-            //              ChatName = user.Username,
-            //              ProfileUrl = user.ProfileUrl,
-            //              LastMessage = msg.Message,
-            //              LastMessageTime = msg.CreatedAt,
-            //              IsGroup = false
-            //          })
-            //    .ToListAsync();
-            //        var groupedMessages = await _context.ChatMessages
-            //.Where(m => m.SenderId == userId || m.ReceiverId == userId)
-            //.GroupBy(m => m.SenderId == userId ? m.ReceiverId : m.SenderId)
-            //.Select(g => g.OrderByDescending(m => m.CreatedAt).FirstOrDefault())
-            //.ToListAsync();
-
-            //        var directChats = groupedMessages
-            //            .Join(_context.Users.AsEnumerable(),
-            //                  msg => msg.SenderId == userId ? msg.ReceiverId : msg.SenderId,
-            //                  user => user.UserId,
-            //                  (msg, user) => new ChatListItemDto
-            //                  {
-            //                      ChatId = user.UserId,
-            //                      ChatName = user.Username,
-            //                      ProfileUrl = user.ProfileUrl,
-            //                      LastMessage = msg.Message,
-            //                      LastMessageTime = msg.CreatedAt,
-            //                      IsGroup = false
-            //                  })
-            //            .ToList();
-
-
-           
-            // Step 1: Get all relevant chat messages involving the user
-            var messages = await _context.ChatMessages
-                .Where(m => m.SenderId == userId || m.ReceiverId == userId)
-                .ToListAsync();
-
-            // Step 2: Group messages into conversations
-            var grouped = messages
+            // ------------------------------
+            // 1. Get latest 1-on-1 messages
+            // ------------------------------
+            var directMessages = await _context.ChatMessages
+                .Where(m => m.GroupId == null && (m.SenderId == userId || m.ReceiverId == userId))
                 .GroupBy(m => new
                 {
-                    User1 = Math.Min(m.SenderId, m.ReceiverId),
-                    User2 = Math.Max(m.SenderId, m.ReceiverId)
+                    User1 = m.SenderId < m.ReceiverId ? m.SenderId : m.ReceiverId,
+                    User2 = m.SenderId < m.ReceiverId ? m.ReceiverId : m.SenderId
                 })
-                .Select(g => g.OrderByDescending(m => m.CreatedAt).First()) // latest message per chat
-                .ToList();
+                .Select(g => g.OrderByDescending(m => m.CreatedAt).FirstOrDefault())
+                .ToListAsync();
 
-            // Step 3: Load user info for the other person in the chat
-            var userIds = grouped
+            var otherUserIds = directMessages
                 .Select(m => m.SenderId == userId ? m.ReceiverId : m.SenderId)
                 .Distinct()
                 .ToList();
 
             var users = await _context.Users
-                .Where(u => userIds.Contains(u.UserId))
+                .Where(u => otherUserIds.Contains(u.UserId))
                 .ToListAsync();
 
-            // Step 4: Join and project
-            var chatList = grouped
+            var directChats = directMessages
                 .Select(m =>
                 {
                     var otherUserId = m.SenderId == userId ? m.ReceiverId : m.SenderId;
@@ -100,42 +54,55 @@ namespace messaging_app_backend.Services
                         IsGroup = false
                     };
                 })
-                .OrderByDescending(x => x.LastMessageTime)
                 .ToList();
 
+            // ------------------------------
+            // 2. Get latest group messages
+            // ------------------------------
+            var groupIds = await _context.ChatGroupMembers
+                .Where(m => m.UserId == userId && m.IsActive)
+                .Select(m => m.GroupId)
+                .ToListAsync();
+
+            var latestGroupMessages = await _context.ChatMessages
+                .Where(m => m.GroupId != null && groupIds.Contains(m.GroupId.Value))
+                .GroupBy(m => m.GroupId)
+                .Select(g => g.OrderByDescending(m => m.CreatedAt).FirstOrDefault())
+                .ToListAsync();
+
+            var groups = await _context.ChatGroups
+                .Where(g => groupIds.Contains(g.Id))
+                .ToListAsync();
+
+            var groupChats = groups
+    .Select(group =>
+    {
+        var msg = latestGroupMessages.FirstOrDefault(m => m.GroupId == group.Id);
+
+        return new ChatListItemDto
+        {
+            ChatId = group.Id,
+            ChatName = group.Name,
+            ProfileUrl = "", // Replace with group icon if available
+            LastMessage = msg?.Message ?? "No messages yet",
+            LastMessageTime = msg?.CreatedAt ?? group.CreatedAt, // Or use DateTime.MinValue
+            IsGroup = true
+        };
+    })
+    .ToList();
 
 
-            // --- Group Chats ---
-            //var groupIds = await _context.ChatGroupMembers
-            //    .Where(m => m.UserId == userId)
-            //    .Select(m => m.GroupId)
-            //    .ToListAsync();
-
-            //var groupMessages = await _context.ChatMessages
-            //    .Where(m => groupIds.Contains(m.GroupId))
-            //    .GroupBy(m => m.GroupId)
-            //    .Select(g => g.OrderByDescending(m => m.CreatedAt).FirstOrDefault())
-            //    .Join(_context.ChatGroups,
-            //          msg => msg.GroupId,
-            //          grp => grp.Id,
-            //          (msg, grp) => new ChatListItemDto
-            //          {
-            //              ChatId = grp.Id,
-            //              ChatName = grp.Name,
-            //              ProfileUrl = "", // You can add group icon if supported
-            //              LastMessage = msg.Message,
-            //              LastMessageTime = msg.CreatedAt,
-            //              IsGroup = true
-            //          })
-            //    .ToListAsync();
-
-            //var allChats = directChats
-            //    .Concat(groupMessages)
-            //    .OrderByDescending(c => c.LastMessageTime)  
-            //    .ToList();
-
-            return chatList;
+            // ------------------------------
+            // 3. Combine and return all chats
+            // ------------------------------
+            var allChats = directChats
+                .Concat(groupChats)
+                .OrderByDescending(c => c.LastMessageTime)
+                .ToList();
+     
+            return allChats;
         }
+
     }
 
 }
