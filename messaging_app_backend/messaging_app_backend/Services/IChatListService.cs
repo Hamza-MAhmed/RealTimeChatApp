@@ -79,9 +79,9 @@ namespace messaging_app_backend.Services
                     UnreadCount = unreadCount,
                     LastMessage = lastMessage != null ? new MessageDto
                     {
-                        Id = lastMessage.MessageId,
+                        MessageId = lastMessage.MessageId,
                         Content = lastMessage.Content,
-                        SentAt = lastMessage.CreatedAt,
+                        CreatedAt = lastMessage.CreatedAt,
                         SenderId = lastMessage.SenderId,
                         SenderName = lastMessage.Sender.Username
                     } : null
@@ -89,7 +89,7 @@ namespace messaging_app_backend.Services
             }
 
             // Order by most recent message
-            return chatDtos.OrderByDescending(c => c.LastMessage?.SentAt ?? c.CreatedAt).ToList();
+            return chatDtos.OrderByDescending(c => c.LastMessage?.CreatedAt ?? c.CreatedAt).ToList();
         }
 
         public async Task<ChatListDto> GetChatByIdAsync(int chatId, int userId)
@@ -152,9 +152,9 @@ namespace messaging_app_backend.Services
                 UnreadCount = unreadCount,
                 LastMessage = lastMessage != null ? new MessageDto
                 {
-                    Id = lastMessage.MessageId,
+                    MessageId = lastMessage.MessageId,
                     Content = lastMessage.Content,
-                    SentAt = lastMessage.CreatedAt,
+                    CreatedAt = lastMessage.CreatedAt,
                     SenderId = lastMessage.SenderId,
                     SenderName = lastMessage.Sender.Username
                 } : null,

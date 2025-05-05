@@ -8,4 +8,10 @@
         public string PhoneNo { get; set; }
         public string ProfileUrl { get; set; }
     }
+
+    public class UpdateUserProfileDto
+    {
+        public string Name { get; set; }
+        public string PhoneNumber { get; set; }
+    }
 }

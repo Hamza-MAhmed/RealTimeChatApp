@@ -84,7 +84,10 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// Register ChatListService
 builder.Services.AddScoped<IChatListService, ChatListService>();
+// Register UserService
+builder.Services.AddScoped<IUserService, UserService>();
 
 // Middleware Configuration - Update this section
 var app = builder.Build();
