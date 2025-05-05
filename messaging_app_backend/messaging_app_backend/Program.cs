@@ -7,8 +7,9 @@ using messaging_app_backend.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
-//builder.WebHost.UseUrls("http://0.0.0.0:5095");
 
+// Add services
+builder.WebHost.UseUrls("http://0.0.0.0:5095");
 
 // Add services to the container.
 builder.Services.AddDbContext<ChatAppDbContext>(options =>
@@ -18,21 +19,45 @@ builder.Services.AddDbContext<ChatAppDbContext>(options =>
 // CORS Configuration
 builder.Services.AddCors(options =>
 {
-    //options.AddDefaultPolicy(policy =>
-    //{
-    //    policy
-    //        .WithOrigins("http://localhost:8081", "http://192.168.1.1:8081")  // Update these URLs as needed
-    //        .AllowAnyHeader()
-    //        .AllowAnyMethod();
-    //});
-    //services.AddCors(options =>{
+    options.AddPolicy("AllowReactNative",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:19006", "http://192.168.100.178:19006", "exp://192.168.100.178:19000")
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
 
     options.AddPolicy("AllowAll", builder =>
         builder.AllowAnyOrigin()
                .AllowAnyMethod()
                .AllowAnyHeader());
-});
+}); 
+
+//builder.Services.AddCors(options =>
+//{
+//    //options.AddDefaultPolicy(policy =>
+//    //{
+//    //    policy
+//    //        .WithOrigins("http://localhost:8081", "http://192.168.1.1:8081")  // Update these URLs as needed
+//    //        .AllowAnyHeader()
+//    //        .AllowAnyMethod();
+//    //});
+//    //services.AddCors(options =>{
+
+//    options.AddPolicy("AllowReactNative",
+//        policy =>
+//        {
+//            policy.WithOrigins("http://localhost:19006") // Or your actual Metro bundler URL
+//                  .AllowAnyHeader()
+//                  .AllowAnyMethod();
+//        });
+
+//    options.AddPolicy("AllowAll", builder =>
+//        builder.AllowAnyOrigin()
+//               .AllowAnyMethod()
+//               .AllowAnyHeader());
 //});
+////});
 
 
 builder.Services.AddControllers();
@@ -61,24 +86,26 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddScoped<IChatListService, ChatListService>();
 
+// Middleware Configuration - Update this section
 var app = builder.Build();
-// CORS middleware must be placed before routing and authorization
-app.UseCors("AllowAll");  // Use CORS middleware to apply the CORS policy
-app.UseAuthentication(); // 🔥 Add this before UseAuthorization()
+
+// CORS middleware must be placed before routing and endpoints
+app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+// Comment out HTTPS redirection if causing issues
+//app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -86,7 +113,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
 
 
 

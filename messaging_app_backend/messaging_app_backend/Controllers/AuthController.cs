@@ -24,63 +24,120 @@ namespace messaging_app_backend.Controllers
             _logger = logger;
         }
 
+        [HttpGet("test")]
+        public IActionResult Test()
+        {
+            _logger.LogInformation("Received test request!");
+            return Ok(new { message = "API is working" });
+        }
+
         [HttpPost("signup")]
         public async Task<IActionResult> Signup([FromBody] SignupRequest signupRequest)
         {
-            _logger.LogInformation("Received signup request with data: {@SignupRequest}", signupRequest);
-
-            if (await _context.Users.AnyAsync(u => u.Username == signupRequest.Username))
+            try
             {
-                return BadRequest("Username already exists");
+                // Log complete request details for debugging
+                _logger.LogInformation("Received signup request with data: Username={Username}, Email={Email}, PhoneNo={PhoneNo}",
+                    signupRequest.Username, signupRequest.Email, signupRequest.PhoneNo);
+
+                // Manual validation in case model binding doesn't trigger validation
+                if (string.IsNullOrEmpty(signupRequest.Username) ||
+                    string.IsNullOrEmpty(signupRequest.Email) ||
+                    string.IsNullOrEmpty(signupRequest.Password) ||
+                    string.IsNullOrEmpty(signupRequest.PhoneNo))
+                {
+                    return BadRequest("All required fields must be provided");
+                }
+
+                // Check for existing user
+                if (await _context.Users.AnyAsync(u => u.Username == signupRequest.Username))
+                {
+                    return BadRequest("Username already exists");
+                }
+
+                if (await _context.Users.AnyAsync(u => u.Email == signupRequest.Email))
+                {
+                    return BadRequest("Email already in use");
+                }
+
+                // Create new user
+                var user = new User
+                {
+                    Username = signupRequest.Username,
+                    Email = signupRequest.Email,
+                    Password = BCrypt.Net.BCrypt.HashPassword(signupRequest.Password),
+                    PhoneNo = signupRequest.PhoneNo,
+                    ProfileUrl = signupRequest.ProfileUrl ?? "", // Handle possible null
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow,
+                };
+
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+
+                _logger.LogInformation("User registration successful: {Username}", signupRequest.Username);
+
+                // Return token to allow immediate login
+                var token = GenerateJwtToken(user);
+                return Ok(new { token = token, message = "User registered successfully" });
             }
-
-            var user = new User
+            catch (Exception ex)
             {
-                Username = signupRequest.Username,
-                Email = signupRequest.Email,
-                Password = BCrypt.Net.BCrypt.HashPassword(signupRequest.Password),  // 🔥 Hash password here
-                PhoneNo = signupRequest.PhoneNo,
-                ProfileUrl = signupRequest.ProfileUrl,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow,
-            };
-
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-            Console.WriteLine($"Signup attempt for: {signupRequest.Username}"); // Simple logging
-
-
-            return Ok("User registered successfully");
+                _logger.LogError(ex, "Error during user registration for {Username}", signupRequest?.Username ?? "unknown");
+                return StatusCode(500, "An error occurred during registration");
+            }
         }
-
-
-
-        //[HttpPost("signup")]
-        //public IActionResult Signup([FromBody] User user)
-        //{
-        //    if (_context.Users.Any(u => u.Username == user.Username))
-        //    {
-        //        return BadRequest("Username already exists");
-        //    }
-
-        //    _context.Users.Add(user);
-        //    _context.SaveChanges();
-        //    return Ok("Signup successful");
-        //}
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == loginRequest.Username);
-
-            if (user == null || !BCrypt.Net.BCrypt.Verify(loginRequest.Password, user.Password)) //  Verify hash
+            try
             {
-                return Unauthorized("Invalid username or password");
+                // Manual validation to ensure either username or email is provided
+                if (string.IsNullOrEmpty(loginRequest.Password))
+                {
+                    return BadRequest(new { message = "Password is required" });
+                }
+
+                if (string.IsNullOrEmpty(loginRequest.Username) && string.IsNullOrEmpty(loginRequest.Email))
+                {
+                    return BadRequest(new { message = "Either username or email is required" });
+                }
+
+                // Initialize user as null
+                User user = null;
+
+                // Check if we have a username or email
+                if (!string.IsNullOrEmpty(loginRequest.Username))
+                {
+                    _logger.LogInformation("Login attempt for username: {Username}", loginRequest.Username);
+                    user = await _context.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == loginRequest.Username.ToLower());
+                }
+                else if (!string.IsNullOrEmpty(loginRequest.Email))
+                {
+                    _logger.LogInformation("Login attempt for email: {Email}", loginRequest.Email);
+                    user = await _context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == loginRequest.Email.ToLower());
+                }
+
+                // Validate user exists and password is correct
+                if (user == null || !BCrypt.Net.BCrypt.Verify(loginRequest.Password, user.Password))
+                {
+                    _logger.LogWarning("Login failed: Invalid credentials");
+                    return Unauthorized(new { message = "Invalid username/email or password" });
+                }
+
+                // Generate the token
+                var token = GenerateJwtToken(user);
+                _logger.LogInformation("Login successful for user ID: {UserId}", user.UserId);
+
+                // Return token with correct capitalization to match frontend expectation
+                return Ok(new { token = token });
             }
-
-            var token = GenerateJwtToken(user);
-
-            return Ok(new { Token = token });
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during login");
+                return StatusCode(500, new { message = "An error occurred during login" });
+            }
         }
 
         //[HttpPost("login")]

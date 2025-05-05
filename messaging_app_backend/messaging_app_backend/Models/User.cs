@@ -7,19 +7,21 @@ namespace messaging_app_backend.Models
         [Key]
         public int UserId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Username is required")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email format")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Password is required")]
+        [MinLength(6, ErrorMessage = "Password must be at least 6 characters")]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Phone number is required")]
         public string PhoneNo { get; set; }
 
-        public string ProfileUrl { get; set; }
+        public string ProfileUrl { get; set; } = "";
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
