@@ -162,34 +162,35 @@ namespace messaging_app_backend.Services
             };
         }
 
+        // In your ChatListService or directly in controller
         public async Task<bool> MarkChatAsReadAsync(int chatId, int userId)
         {
-            // Verify user is a participant
-            var isParticipant = await _context.ChatParticipants
-                .AnyAsync(cp => cp.ChatId == chatId && cp.UserId == userId);
+            // Check if user has access to this chat
+            var chatParticipant = await _context.ChatParticipants
+                .FirstOrDefaultAsync(p => p.ChatId == chatId && p.UserId == userId);
 
-            if (!isParticipant)
+            if (chatParticipant == null)
             {
-                return false; // User is not authorized to access this chat
+                return false;
             }
 
-            // Get all unread messages in this chat
-            var unreadMessages = await _context.Messages
-                .Where(m => m.ChatId == chatId &&
-                       m.SenderId != userId &&
-                       !_context.MessageReadStatus
-                          .Any(mrs => mrs.MessageId == m.MessageId && mrs.UserId == userId))
-                .ToListAsync();
+            // Find or create UserChatRead record
+            var userChatRead = await _context.UserChatRead
+                .FirstOrDefaultAsync(r => r.UserId == userId && r.ChatId == chatId);
 
-            // Mark each message as read
-            foreach (var message in unreadMessages)
+            if (userChatRead == null)
             {
-                _context.MessageReadStatus.Add(new MessageReadStatus
+                userChatRead = new UserChatRead
                 {
-                    MessageId = message.MessageId,
                     UserId = userId,
-                    ReadAt = DateTime.UtcNow
-                });
+                    ChatId = chatId,
+                    LastReadAt = DateTime.UtcNow
+                };
+                _context.UserChatRead.Add(userChatRead);
+            }
+            else
+            {
+                userChatRead.LastReadAt = DateTime.UtcNow;
             }
 
             await _context.SaveChangesAsync();

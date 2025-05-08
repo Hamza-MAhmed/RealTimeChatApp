@@ -146,6 +146,31 @@ namespace messaging_app_backend.Controllers
                         chatDto.ChatId, chatDto.Name, chatDto.IsGroup);
                 }
 
+                // Calculate unread message count for all the chats
+                foreach (var chat in chatDtos)
+                {
+                    // Calculate unread message count for this chat
+                    var lastReadTimestamp = await _context.UserChatRead
+                        .Where(r => r.UserId == userId && r.ChatId == chat.ChatId)
+                        .Select(r => r.LastReadAt)
+                        .FirstOrDefaultAsync();
+
+                    // Default to chat creation time if never read
+                    if (lastReadTimestamp == default)
+                    {
+                        lastReadTimestamp = chat.CreatedAt;
+                    }
+
+                    // Count messages newer than last read time
+                    var unreadCount = await _context.Messages
+                        .Where(m => m.ChatId == chat.ChatId &&
+                               m.SenderId != userId && // Don't count user's own messages
+                               m.CreatedAt > lastReadTimestamp)
+                        .CountAsync();
+
+                    chat.UnreadCount = unreadCount;
+                }
+
                 return Ok(chatDtos);
             }
             catch (Exception ex)

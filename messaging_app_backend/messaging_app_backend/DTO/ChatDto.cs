@@ -19,6 +19,7 @@ namespace messaging_app_backend.DTO
         public DateTime UpdatedAt { get; set; }
         public List<ChatParticipantDto> Participants { get; set; }
         public MessageDto LastMessage { get; set; }
+        public int UnreadCount { get; set; }
     }
 
     public class ChatParticipantDto
@@ -49,5 +50,16 @@ namespace messaging_app_backend.DTO
 
         [JsonPropertyName("attachmentUrl")]
         public string AttachmentUrl { get; set; }
+    }
+
+    public class UserChatRead
+    {
+        public int UserId { get; set; }
+        public int ChatId { get; set; }
+        public DateTime LastReadAt { get; set; }
+
+        // Navigation properties
+        public User User { get; set; }
+        public Chat Chat { get; set; }
     }
 }
