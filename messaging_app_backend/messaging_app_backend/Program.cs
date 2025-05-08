@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Hosting;
 using messaging_app_backend.Services;
+using System.Text.Json;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,12 @@ builder.WebHost.UseUrls("http://0.0.0.0:5095");
 builder.Services.AddDbContext<ChatAppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services
+    .AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+    });
 
 // CORS Configuration
 builder.Services.AddCors(options =>
@@ -63,6 +70,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
+
+builder.Logging.AddConsole(); // Make sure console logging is added
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(options =>

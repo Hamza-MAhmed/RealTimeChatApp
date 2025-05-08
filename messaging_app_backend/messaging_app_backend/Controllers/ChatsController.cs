@@ -29,12 +29,6 @@ namespace messaging_app_backend.Controllers
             _logger = logger;
         }
 
-        // This constructor creates an issue - removed or modified as it conflicts with the primary constructor
-        // public ChatsController(ILogger<ChatsController> logger)
-        // {
-        //     _logger = logger;
-        // }
-
         /// <summary>
         /// Get all chats for the current user
         /// </summary>
@@ -46,8 +40,113 @@ namespace messaging_app_backend.Controllers
                 var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
                 _logger.LogInformation("Getting chats for user {UserId}", userId);
 
-                var chats = await _chatListService.GetUserChatsAsync(userId);
-                return Ok(chats);
+                // Get the chat list from the service
+                var chatList = await _chatListService.GetUserChatsAsync(userId);
+                _logger.LogInformation("Initial chat list count: {Count}", chatList.Count);
+
+                // Log each chat from the service
+                foreach (var chat in chatList)
+                {
+                    _logger.LogInformation("Chat from service - Id: {Id}, Name: {Name}, IsGroup: {IsGroup}",
+                        chat.Id, chat.Name, chat.IsGroup);
+                }
+
+                // Get participants for all chats
+                var chatIds = chatList.Select(c => c.Id).ToList();
+                _logger.LogInformation("Getting participants for {Count} chats", chatIds.Count);
+
+                // Dictionary to store chat participants
+                var chatParticipants = new Dictionary<int, List<ChatParticipantDto>>();
+
+                // Get all participants from the database
+                var allParticipants = await _context.ChatParticipants
+                    .Where(cp => chatIds.Contains(cp.ChatId))
+                    .Include(cp => cp.User)
+                    .ToListAsync();
+
+                _logger.LogInformation("Found {Count} participants for all chats", allParticipants.Count);
+
+                // Group participants by chat
+                foreach (var participant in allParticipants)
+                {
+                    if (!chatParticipants.ContainsKey(participant.ChatId))
+                    {
+                        chatParticipants[participant.ChatId] = new List<ChatParticipantDto>();
+                    }
+
+                    chatParticipants[participant.ChatId].Add(new ChatParticipantDto
+                    {
+                        UserId = participant.UserId,
+                        Username = participant.User.Username,
+                        Email = participant.User.Email,
+                        ProfileUrl = participant.User.ProfileUrl,
+                        IsAdmin = participant.IsAdmin,
+                        JoinedAt = participant.JoinedAt
+                    });
+                }
+
+                // Convert ChatListDto objects to ChatDto objects
+                var chatDtos = new List<ChatDto>();
+
+                foreach (var chat in chatList)
+                {
+                    // For one-to-one chats, ensure the name is set to the other participant's name
+                    string chatName = chat.Name;
+                    string profileUrl = chat.ProfileUrl ?? "";
+
+                    _logger.LogInformation("Processing chat {Id}, IsGroup: {IsGroup}, Initial name: {Name}",
+                        chat.Id, chat.IsGroup, chatName);
+
+                    // If this is a one-to-one chat, ensure we have the correct name
+                    if (!chat.IsGroup)
+                    {
+                        if (chatParticipants.TryGetValue(chat.Id, out var chatMembers))
+                        {
+                            _logger.LogInformation("Found {Count} participants for chat {Id}",
+                                chatMembers.Count, chat.Id);
+
+                            var otherParticipant = chatMembers.FirstOrDefault(p => p.UserId != userId);
+                            if (otherParticipant != null)
+                            {
+                                chatName = otherParticipant.Username;
+                                profileUrl = otherParticipant.ProfileUrl;
+                                _logger.LogInformation("Setting chat name to {Name} from participant {UserId}",
+                                    chatName, otherParticipant.UserId);
+                            }
+                            else
+                            {
+                                _logger.LogWarning("No other participant found for chat {Id}", chat.Id);
+                            }
+                        }
+                        else
+                        {
+                            _logger.LogWarning("No participants found for chat {Id}", chat.Id);
+                        }
+                    }
+
+                    // Create the ChatDto with proper name
+                    var chatDto = new ChatDto
+                    {
+                        ChatId = chat.Id,
+                        Name = chatName,
+                        Description = chat.Description,
+                        IsGroup = chat.IsGroup,
+                        ProfileUrl = profileUrl,
+                        CreatedAt = chat.CreatedAt,
+                        UpdatedAt = chat.CreatedAt,
+                        LastMessage = chat.LastMessage,
+                        Participants = chatParticipants.TryGetValue(chat.Id, out var memberList)
+                            ? memberList
+                            : new List<ChatParticipantDto>()
+                    };
+
+                    chatDtos.Add(chatDto);
+
+                    _logger.LogInformation("Added chat to result - Id: {Id}, Name: {Name}, IsGroup: {IsGroup}",
+                        chatDto.ChatId, chatDto.Name, chatDto.IsGroup);
+                }
+
+                return Ok(chatDtos);
             }
             catch (Exception ex)
             {
@@ -149,7 +248,8 @@ namespace messaging_app_backend.Controllers
 
                 // Get all one-to-one chats the current user is participating in
                 var existingOneToOneChats = await _context.ChatParticipants
-                    .Where(p => p.UserId == userId)
+                    .Include(p => p.Chat)
+                    .Where(p => p.UserId == userId && !p.Chat.IsGroup)
                     .Select(p => p.ChatId)
                     .ToListAsync();
 
@@ -482,10 +582,15 @@ namespace messaging_app_backend.Controllers
         {
             try
             {
+                _logger.LogInformation("Received message request: {@MessageDto}", messageDto);
                 if (!ModelState.IsValid)
                 {
+                    var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                    _logger.LogInformation("Invalid model state: {Errors}", string.Join(" | ", errors));
+                    _logger.LogWarning("Invalid model state: {Errors}", string.Join(" | ", errors));
                     return BadRequest(ModelState);
                 }
+
 
                 int senderId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
                 _logger.LogInformation("User {UserId} is sending a message to chat {ChatId}", senderId, id);
@@ -545,9 +650,5 @@ namespace messaging_app_backend.Controllers
         }
     }
 
-    public class SendMessageDto
-    {
-        public string Content { get; set; }
-        public string AttachmentUrl { get; set; }
-    }
+  
 }

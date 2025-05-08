@@ -1,4 +1,5 @@
-﻿namespace messaging_app_backend.DTO
+﻿using System.Text.Json.Serialization;
+namespace messaging_app_backend.DTO
 {
     public class CreateChatDto
     {
@@ -39,5 +40,14 @@
         public string Content { get; set; }
         public string AttachmentUrl { get; set; }
         public DateTime CreatedAt { get; set; }
+    }
+
+    public class SendMessageDto
+    {
+        [JsonPropertyName("content")]
+        public string Content { get; set; }
+
+        [JsonPropertyName("attachmentUrl")]
+        public string AttachmentUrl { get; set; }
     }
 }
