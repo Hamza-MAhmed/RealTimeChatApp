@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR;
+using messaging_app_backend.Hubs;
 
 namespace messaging_app_backend.Controllers
 {
@@ -18,15 +20,21 @@ namespace messaging_app_backend.Controllers
     [Authorize]
     public class ChatsController : ControllerBase
     {
+        private readonly IHubContext<ChatHub> _hubContext; // for Real time updates
         private readonly IChatListService _chatListService;
         private readonly ILogger<ChatsController> _logger;
         private readonly ChatAppDbContext _context;
 
-        public ChatsController(ChatAppDbContext context, IChatListService chatListService, ILogger<ChatsController> logger)
+        public ChatsController(
+            ChatAppDbContext context,
+            IChatListService chatListService,
+            ILogger<ChatsController> logger,
+            IHubContext<ChatHub> hubContext)
         {
             _context = context;
             _chatListService = chatListService;
             _logger = logger;
+            _hubContext = hubContext;
         }
 
         /// <summary>
@@ -664,6 +672,12 @@ namespace messaging_app_backend.Controllers
                     AttachmentUrl = message.AttachmentUrl,
                     CreatedAt = message.CreatedAt
                 };
+
+                // Notify clients about new message
+                await _hubContext.Clients.Group($"chat_{id}").SendAsync("ReceiveMessage", responseMessageDto);
+
+                // Notify all clients about new messages for chat list updates
+                await _hubContext.Clients.All.SendAsync("NewMessage", responseMessageDto);
 
                 return CreatedAtAction(nameof(GetChatMessages), new { id = message.ChatId }, responseMessageDto);
             }

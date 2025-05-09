@@ -71,7 +71,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 
-builder.Logging.AddConsole(); // Make sure console logging is added
+builder.Services.AddLogging(logging =>
+{
+    logging.ClearProviders();
+    logging.AddConsole();
+    logging.AddDebug();
+    logging.SetMinimumLevel(LogLevel.Trace);
+});
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(options =>
@@ -97,6 +103,8 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddScoped<IChatListService, ChatListService>();
 // Register UserService
 builder.Services.AddScoped<IUserService, UserService>();
+// SignalR For real time updates
+builder.Services.AddSignalR();
 
 // Middleware Configuration - Update this section
 var app = builder.Build();
@@ -119,6 +127,18 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    // Add SignalR hub endpoint
+    app.MapHub<ChatHub>("/chatHub", options =>
+    {
+        // Temporarily disable auth requirements for testing
+        options.RequireAuthorization = false;
+    });
+
+});
 
 app.MapControllerRoute(
     name: "default",
