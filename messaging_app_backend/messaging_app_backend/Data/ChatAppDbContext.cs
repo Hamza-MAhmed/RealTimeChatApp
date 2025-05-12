@@ -1,4 +1,5 @@
-﻿using messaging_app_backend.Models;
+﻿using messaging_app_backend.DTO;
+using messaging_app_backend.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace messaging_app_backend.Data
@@ -47,6 +48,11 @@ namespace messaging_app_backend.Data
                 .WithMany()
                 .HasForeignKey(mrs => mrs.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<UserChatRead>()
+                .HasKey(uc => new { uc.ChatId, uc.UserId });
+
+            base.OnModelCreating(modelBuilder);
         }
 
         // DbSets for all entities used in the ChatListService
@@ -60,5 +66,7 @@ namespace messaging_app_backend.Data
         public DbSet<Message> Messages { get; set; }
         public DbSet<ChatParticipant> ChatParticipants { get; set; }
         public DbSet<MessageReadStatus> MessageReadStatus { get; set; }
+        public DbSet<UserChatRead> UserChatRead { get; set; }
+
     }
 }

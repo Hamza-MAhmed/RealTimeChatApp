@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Hosting;
 using messaging_app_backend.Services;
 using System.Text.Json;
+using messaging_app_backend.Hubs;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,45 +30,46 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactNative",
         policy =>
         {
-            policy.WithOrigins("http://localhost:19006", "http://192.168.100.178:19006", "exp://192.168.100.178:19000")
+            policy.WithOrigins("http://localhost:8081", "http://192.168.1.108:8081", "exp://192.168.1.108:8081")
                   .AllowAnyHeader()
-                  .AllowAnyMethod();
+                  .AllowAnyMethod()
+                  .AllowCredentials();
         });
 
     options.AddPolicy("AllowAll", builder =>
         builder.AllowAnyOrigin()
                .AllowAnyMethod()
                .AllowAnyHeader());
-}); 
+});
 
-//builder.Services.AddCors(options =>
-//{
-//    //options.AddDefaultPolicy(policy =>
-//    //{
-//    //    policy
-//    //        .WithOrigins("http://localhost:8081", "http://192.168.1.1:8081")  // Update these URLs as needed
-//    //        .AllowAnyHeader()
-//    //        .AllowAnyMethod();
-//    //});
-//    //services.AddCors(options =>{
+    //builder.Services.AddCors(options =>
+    //{
+    //    //options.AddDefaultPolicy(policy =>
+    //    //{
+    //    //    policy
+    //    //        .WithOrigins("http://localhost:8081", "http://192.168.1.1:8081")  // Update these URLs as needed
+    //    //        .AllowAnyHeader()
+    //    //        .AllowAnyMethod();
+    //    //});
+    //    //services.AddCors(options =>{
 
-//    options.AddPolicy("AllowReactNative",
-//        policy =>
-//        {
-//            policy.WithOrigins("http://localhost:19006") // Or your actual Metro bundler URL
-//                  .AllowAnyHeader()
-//                  .AllowAnyMethod();
-//        });
+    //    options.AddPolicy("AllowReactNative",
+    //        policy =>
+    //        {
+    //            policy.WithOrigins("http://localhost:19006") // Or your actual Metro bundler URL
+    //                  .AllowAnyHeader()
+    //                  .AllowAnyMethod();
+    //        });
 
-//    options.AddPolicy("AllowAll", builder =>
-//        builder.AllowAnyOrigin()
-//               .AllowAnyMethod()
-//               .AllowAnyHeader());
-//});
-////});
+    //    options.AddPolicy("AllowAll", builder =>
+    //        builder.AllowAnyOrigin()
+    //               .AllowAnyMethod()
+    //               .AllowAnyHeader());
+    //});
+    ////});
 
 
-builder.Services.AddControllers();
+    builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 
@@ -106,11 +108,14 @@ builder.Services.AddScoped<IUserService, UserService>();
 // SignalR For real time updates
 builder.Services.AddSignalR();
 
+
+
 // Middleware Configuration - Update this section
 var app = builder.Build();
 
 // CORS middleware must be placed before routing and endpoints
-app.UseCors("AllowAll");
+//app.UseCors("AllowAll");
+app.UseCors("AllowReactNative");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -128,17 +133,26 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-    // Add SignalR hub endpoint
-    app.MapHub<ChatHub>("/chatHub", options =>
-    {
-        // Temporarily disable auth requirements for testing
-        options.RequireAuthorization = false;
-    });
+app.MapControllers();
+app.MapHub<ChatHub>("/chatHub");
 
-});
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapControllers();
+//    // Add SignalR hub endpoint
+//    app.MapHub<ChatHub>("/chatHub");
+//    });
+
+
+
+
+//    , options =>
+//{
+//    // Temporarily disable auth requirements for testing
+//    options.RequireAuthorization = false;
+//});
+
+//});
 
 app.MapControllerRoute(
     name: "default",

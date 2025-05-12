@@ -1,4 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+using messaging_app_backend.Models;
 namespace messaging_app_backend.DTO
 {
     public class CreateChatDto
@@ -54,7 +56,9 @@ namespace messaging_app_backend.DTO
 
     public class UserChatRead
     {
+        
         public int UserId { get; set; }
+
         public int ChatId { get; set; }
         public DateTime LastReadAt { get; set; }
 
